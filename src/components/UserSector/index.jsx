@@ -15,10 +15,12 @@ export default function UserSector () {
     const [formData, setFormData] = useState({name: "",terms: "", selected: []});
     const [userSector, setUserSector] = useState([])
     const [expanded, setExpanded] = useState([]);
+    let sectorKey=[];
 
     const handleExpandClick = () => {
+           
         setExpanded((oldExpanded) =>
-          oldExpanded.length === 0 ? ['1', '5', '6', '7'] : [],
+          oldExpanded.length === 0 ? sectorKey : [],
         );
       };
 
@@ -85,11 +87,13 @@ export default function UserSector () {
                         sx={{ height: 216, flexGrow: 1, maxWidth: 400, overflowY: 'auto'}}
                         >                        
                         {userSector.map((sector, index) => {     
-                            
+                            sectorKey.push(sector.id, sector.type1_id, sector.type2_id, sector.type3_id)
                             return (
                                 <TreeItem key={index} nodeId={sector.id} label={sector.sector_name} >
-                                    <TreeItem nodeId={sector.type1_id} label={sector.type1} >
-                                        <TreeItem nodeId={sector.type1_id} label={sector.type1} />   
+                                    <TreeItem nodeId={sector.type1_id === null ? "-": sector.type1_id } label={sector.type1} >
+                                        <TreeItem nodeId={sector.type2_id === null ? "-": sector.type2_id} label={sector.type2} >
+                                           <TreeItem nodeId={sector.type3_id === null ? "-": sector.type3_id} label={sector.type3} />
+                                        </TreeItem>
                                     </TreeItem>
                                 </TreeItem>
                                 
