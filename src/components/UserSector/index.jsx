@@ -7,7 +7,7 @@ import TreeView from '@mui/lab/TreeView';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TreeItem from '@mui/lab/TreeItem';
-
+import axios from 'axios'
 import { userSectorAll } from "../../apis/gramedia";
 
 export default function UserSector () {
@@ -26,8 +26,45 @@ export default function UserSector () {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        if (formData.name === "") {
+            alert(`You must fill name`);
+            return
+        } else if (formData.terms === "") {
+            alert("Terms must be checked");
+            return 
+        } else if (formData.selected === []){
+            alert("Sector must be selected")
+            return
+        }
         
-        alert(`Name: ${formData.name}, terms: ${formData.terms}, Selected: ${formData.selected}`);
+    //     axios({
+    //         method: "POST",
+    //         url: "http://localhost:4000/user",
+    //         data: formData,
+    //         headers: { "Content-Type": "multipart/form-data" },
+    //       })
+    //       .then((response) => {            
+    //         console.log(response.data)
+    //       })
+    //       .catch(function (error) {
+    //         console.log(error);
+    //    });
+
+       axios
+        .post("http://localhost:4000/user", formData, {
+          headers: {
+            "Content-Type": 'application/json',
+            // "multipart/form-data"         
+          },
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+        // alert(`Name: ${formData.name}, terms: ${formData.terms}, Selected: ${formData.selected}`);
     }
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -110,7 +147,7 @@ export default function UserSector () {
                     <textarea id="message" name="message" value={formData.message} onChange={handleChange}/> */}
                 <div>
                 <FormGroup>
-                    <FormControlLabel control={<Checkbox defaultChecked name="terms" onClick={(event) => handleSendSelection(event)} />} label="Agree to terms" />
+                    <FormControlLabel control={<Checkbox name="terms" onClick={(event) => handleSendSelection(event)} />} label="Agree to terms" />
                 </FormGroup>
                     <button className="btn-submit" type="submit">Submit</button>
                 </div>
