@@ -9,6 +9,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TreeItem from '@mui/lab/TreeItem';
 import axios from 'axios'
 import { userSectorAll } from "../../apis/gramedia";
+import { useNavigate } from "react-router-dom";
 
 export default function UserSector () {
 
@@ -16,7 +17,8 @@ export default function UserSector () {
     const [userSector, setUserSector] = useState([])
     const [expanded, setExpanded] = useState([]);
     let sectorKey=[];
-
+    let navigate = useNavigate();
+    
     const handleExpandClick = () => {
            
         setExpanded((oldExpanded) =>
@@ -25,7 +27,8 @@ export default function UserSector () {
       };
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault();       
+
         if (formData.name === "") {
             alert(`You must fill name`);
             return
@@ -37,20 +40,7 @@ export default function UserSector () {
             return
         }
         
-    //     axios({
-    //         method: "POST",
-    //         url: "http://localhost:4000/user",
-    //         data: formData,
-    //         headers: { "Content-Type": "multipart/form-data" },
-    //       })
-    //       .then((response) => {            
-    //         console.log(response.data)
-    //       })
-    //       .catch(function (error) {
-    //         console.log(error);
-    //    });
-
-       axios
+        axios
         .post("http://localhost:4000/user", formData, {
           headers: {
             "Content-Type": 'application/json',
@@ -59,6 +49,7 @@ export default function UserSector () {
         })
         .then((res) => {
           console.log(res);
+          navigate("/edit")
         })
         .catch((err) => {
           console.log(err);

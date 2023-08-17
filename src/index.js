@@ -5,17 +5,18 @@ import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserPage from "./pages/UserPage";
+import UserSector from "./pages/UserSector";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      <UserPage />
-      {/* <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="edit" element={<UserProfile />} />
-        <Route path="register" element={<RegisterPage />} />
+      {/* <UserPage /> */}
+      <Routes>
+        <Route path="/" element={<UserPage />} />
+        {/* <Route path="login" element={<LoginPage />} /> */}
+        <Route path="edit" element={<UserSector />} />
+        {/* <Route path="register" element={<RegisterPage />} />
         <Route path="category/:jenis" element={<CategoriesResult />} />
         <Route
           path="selected/:bookSlug"
@@ -36,8 +37,8 @@ root.render(
           }
         />
 
-        <Route path="*" element={<h1>Halaman tidak ditemukan</h1>} />
-      </Routes> */}
+        <Route path="*" element={<h1>Halaman tidak ditemukan</h1>} /> */}
+      </Routes> 
     </Router>
   </React.StrictMode>
 );
