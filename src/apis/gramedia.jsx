@@ -34,6 +34,11 @@ const userSectorAll = axios.create({
   },
 );
 
+const userSectorResult = axios.create({
+  baseURL: "http://localhost:4000/user",
+  },
+);
+
 const gramediaKeyword = axios.create({
   baseURL: "https://laravel-books-db.herokuapp.com/api",
   headers: {
@@ -47,4 +52,4 @@ const gramediaKeyword = axios.create({
 });
 
 // Jangan lupa diexport karena akan digunakan di tempat lainnya
-export { gramedia, gramediaLokal, gramediaKeyword, userSectorAll };
+export { gramedia, gramediaLokal, gramediaKeyword, userSectorAll,userSectorResult };

@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserPage from "./pages/UserPage";
-import UserSector from "./pages/UserSector";
+import UserResult from "./pages/UserResult";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,7 +15,7 @@ root.render(
       <Routes>
         <Route path="/" element={<UserPage />} />
         {/* <Route path="login" element={<LoginPage />} /> */}
-        <Route path="edit" element={<UserSector />} />
+        <Route path="result" element={<UserResult />} />
         {/* <Route path="register" element={<RegisterPage />} />
         <Route path="category/:jenis" element={<CategoriesResult />} />
         <Route

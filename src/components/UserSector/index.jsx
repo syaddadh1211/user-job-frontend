@@ -49,7 +49,7 @@ export default function UserSector () {
         })
         .then((res) => {
           console.log(res);
-          navigate("/edit")
+          navigate("/result")
         })
         .catch((err) => {
           console.log(err);
