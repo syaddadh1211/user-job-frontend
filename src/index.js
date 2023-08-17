@@ -15,7 +15,7 @@ root.render(
       <Routes>
         <Route path="/" element={<UserPage />} />
         {/* <Route path="login" element={<LoginPage />} /> */}
-        <Route path="result" element={<UserResult />} />
+        <Route path="/result" element={<UserResult />} />
         {/* <Route path="register" element={<RegisterPage />} />
         <Route path="category/:jenis" element={<CategoriesResult />} />
         <Route
@@ -38,7 +38,7 @@ root.render(
         />
 
         <Route path="*" element={<h1>Halaman tidak ditemukan</h1>} /> */}
-      </Routes> 
+      </Routes>
     </Router>
   </React.StrictMode>
 );
