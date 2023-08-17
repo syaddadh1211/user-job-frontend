@@ -28,3 +28,8 @@
     margin: 15px 0px;
     color: #234E09
 }
+
+.text4, .hint {
+    font-weight: 600;
+    color: #234E09;
+}

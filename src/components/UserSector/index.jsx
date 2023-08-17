@@ -18,7 +18,7 @@ export default function UserSector () {
     const [expanded, setExpanded] = useState([]);
     let sectorKey=[];
     let navigate = useNavigate();
-    
+
     const handleExpandClick = () => {
            
         setExpanded((oldExpanded) =>
@@ -63,7 +63,7 @@ export default function UserSector () {
       };
     
     const handleSelectedItems = (event, nodeId) => {              
-        setFormData((prevFormData) => ({ ...prevFormData, ['selected']: nodeId }));
+        setFormData((prevFormData) => ({ ...prevFormData, ['selected']: nodeId}));
         
     }
 
@@ -102,41 +102,38 @@ export default function UserSector () {
                
                 
                     <label className="text3" htmlFor="sector">Sector:</label>
-                    <Button onClick={handleExpandClick}>
-                        {expanded.length === 0 ? 'Expand all' : 'Collapse all'}
-                    </Button>
-                    <TreeView className="tree-select"
-                        aria-label="multi-select"                    
-                        onNodeSelect={handleSelectedItems}
-                        expanded={expanded}
-                        defaultCollapseIcon={<ExpandMoreIcon />}
-                        defaultExpandIcon={<ChevronRightIcon />}
-                        multiSelect
-                        sx={{ height: 216, flexGrow: 1, maxWidth: 400, overflowY: 'auto'}}
-                        >                        
-                        {userSector.map((sector, index) => {     
-                            sectorKey.push(sector.id, sector.type1_id, sector.type2_id, sector.type3_id)
-                            return (
-                                <TreeItem key={index} nodeId={sector.id} label={sector.sector_name} >
-                                    <TreeItem nodeId={sector.type1_id === null ? "-": sector.type1_id } label={sector.type1} >
-                                        <TreeItem nodeId={sector.type2_id === null ? "-": sector.type2_id} label={sector.type2} >
-                                           <TreeItem nodeId={sector.type3_id === null ? "-": sector.type3_id} label={sector.type3} />
+                    <div>
+                        <Button onClick={handleExpandClick}>
+                            {expanded.length === 0 ? 'Expand all' : 'Collapse all'}
+                        </Button>
+                        <TreeView className="tree-select"
+                            aria-label="multi-select"                    
+                            onNodeSelect={handleSelectedItems}
+                            expanded={expanded}
+                            defaultCollapseIcon={<ExpandMoreIcon />}
+                            defaultExpandIcon={<ChevronRightIcon />}
+                            multiSelect
+                            sx={{ height: 216, flexGrow: 1, maxWidth: 400, overflowY: 'auto'}}
+                            >                        
+                            {userSector.map((sector, index) => {     
+                                sectorKey.push(sector.id, sector.type1_id, sector.type2_id, sector.type3_id)
+                                return (
+                                    <TreeItem key={index} nodeId={sector.id} label={sector.sector_name} >
+                                        <TreeItem nodeId={sector.type1_id === null ? "-": sector.type1_id } label={sector.type1} >
+                                            <TreeItem nodeId={sector.type2_id === null ? "-": sector.type2_id} label={sector.type2} >
+                                            <TreeItem nodeId={sector.type3_id === null ? "-": sector.type3_id} label={sector.type3} />
+                                            </TreeItem>
                                         </TreeItem>
                                     </TreeItem>
-                                </TreeItem>
-                                
-                            )
-                        })}
-                    </TreeView>  
+                                    
+                                )
+                            })}
+                        </TreeView>  
                                                
-              
-               
-                    {/* <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}/>
-
-                    <label htmlFor="message">Message:</label>
-                    <textarea id="message" name="message" value={formData.message} onChange={handleChange}/> */}
+                        <label className="text4" >Hint: <span classname="hint">Click Expand All to show the sector, use Ctrl-Click to choose more than one sector</span></label>    
+                    </div>            
                 <div>
+                    
                 <FormGroup>
                     <FormControlLabel control={<Checkbox name="terms" onClick={(event) => handleSendSelection(event)} />} label="Agree to terms" />
                 </FormGroup>
