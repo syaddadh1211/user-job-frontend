@@ -48,34 +48,28 @@ export default function UserResult() {
         },
       })
       .then((res) => {
-        setEdit(false);
-        setOpen(true);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
 
     //insert new choice
-    // axios
-    //   .("http://localhost:4000/user", formData, {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       // "multipart/form-data"
-    //     },
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //     setUserName(formData.name);
-    //     navigate({
-    //       pathname: "/result/",
-    //     });
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    console.log(itemUnchecked);
-    // insert new choice to table
-    console.log(formData);
+    setFormData((prevFormData) => ({ ...prevFormData, ["name"]: userName }));
+    axios
+      .post("http://localhost:4000/user", formData, {
+        headers: {
+          "Content-Type": "application/json",
+          // "multipart/form-data"
+        },
+      })
+      .then((res) => {
+        setEdit(false);
+        setOpen(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleCheckChange = (event) => {
@@ -109,6 +103,10 @@ export default function UserResult() {
         );
 
         setUserSector(response.data);
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          ["name"]: userName,
+        }));
       } catch (err) {
         console.log(err);
       }
@@ -121,63 +119,89 @@ export default function UserResult() {
       <div className="result-wrapper">
         <div className="resultAll">
           <div>
+            <img
+              src=".images/group6.png"
+              alt="images/group6.png"
+              width="376px"
+            />
+          </div>
+          <div>
             <label htmlFor="">User name: {userName}</label>
-          </div>
-          <div>
-            <label htmlFor="">Sector selected: </label>
-          </div>
-          <div>
-            <FormGroup>
-              {userSector.map((item, index) => {
-                return (
-                  <FormControlLabel
-                    key={index + 1}
-                    control={
-                      <Checkbox
-                        name={item.sectortype_id}
-                        defaultChecked={!edit}
-                        disabled={!edit}
-                        onChange={handleCheckChange}
-                      />
-                    }
-                    label={item.type_name}
-                  />
-                );
-              })}
-            </FormGroup>
-          </div>
-          <div>
-            {edit === true ? (
-              <UserSector formData={formData} setFormData={setFormData} />
-            ) : (
-              ""
-            )}
-            <div className="btn-edit">
-              <Button
-                type="primary"
-                variant="contained"
-                onClick={edit === true ? handleSaveClick : handleEditClick}
-              >
-                {edit === true ? "Save" : "Edit"}
-              </Button>
-              {"   "}
-              <Button type="primary" variant="contained" onClick={handleClick}>
-                Done
-              </Button>
-              <Snackbar
-                open={open}
-                autoHideDuration={6000}
-                onClose={handleClose}
-              >
-                <Alert
-                  onClose={handleClose}
-                  severity="success"
-                  sx={{ width: "100%" }}
-                >
-                  Thank you for filling the form !
-                </Alert>
-              </Snackbar>
+            <div>
+              <label htmlFor="">Sector selected: </label>
             </div>
+            <div>
+              <FormGroup>
+                {userSector.map((item, index) => {
+                  return (
+                    <FormControlLabel
+                      key={index + 1}
+                      control={
+                        <Checkbox
+                          name={item.sectortype_id}
+                          defaultChecked={!edit}
+                          disabled={!edit}
+                          onChange={handleCheckChange}
+                        />
+                      }
+                      label={item.type_name}
+                    />
+                  );
+                })}
+              </FormGroup>
+            </div>
+            <div>
+              {edit === true ? (
+                <UserSector formData={formData} setFormData={setFormData} />
+              ) : (
+                ""
+              )}
+              <label className="text4">
+                Hint:{" "}
+                <span className="hint">
+                  Click checkbox to unselected item, use Ctrl-Click to choose
+                  more than one sector
+                </span>
+              </label>
+              <div className="btn-edit">
+                <Button
+                  type="primary"
+                  variant="contained"
+                  onClick={edit === true ? handleSaveClick : handleEditClick}
+                >
+                  {edit === true ? "Save" : "Edit"}
+                </Button>
+                {"   "}
+                <Button
+                  type="primary"
+                  variant="contained"
+                  onClick={handleClick}
+                >
+                  Done
+                </Button>
+                <Snackbar
+                  open={open}
+                  autoHideDuration={2000}
+                  onClose={handleClose}
+                >
+                  <Alert
+                    onClose={handleClose}
+                    severity="success"
+                    sx={{ width: "100%" }}
+                  >
+                    Thank you for filling the form !
+                  </Alert>
+                </Snackbar>
+              </div>
+            </div>
+          </div>
+          <div>
+            <img
+              src="images/group8.png"
+              alt="images/group8.png"
+              width="376px"
+              height="600px"
+            />
           </div>
         </div>
       </div>

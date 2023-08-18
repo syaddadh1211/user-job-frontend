@@ -1,17 +1,28 @@
-.result-wrapper {
+/* .result-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .resultAll {
   font-weight: 800;
   color: #234e09;
   font-size: 20px;
   margin: 15px 0px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .btn-edit {
   margin: 15px 10px;
+}
+
+.text4 {
+  font-weight: 800;
+  color: #234e09;
+  font-size: 16px;
+  margin: 15px 0px;
 }
