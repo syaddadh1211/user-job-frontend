@@ -9,6 +9,7 @@ import { useNameStore } from "../../app/Store";
 import { useNavigate } from "react-router-dom";
 import MuiAlert from "@mui/material/Alert";
 import UserSector from "../../components/UserSector";
+import axios from "axios";
 
 export default function UserResult() {
   const [userSector, setUserSector] = useState([]);
@@ -19,6 +20,8 @@ export default function UserResult() {
   });
   const [open, setOpen] = useState(false);
   const [edit, setEdit] = useState(false);
+  const [itemUnchecked, setItemUnchecked] = useState([]);
+
   let navigate = useNavigate();
 
   const userName = useNameStore((state) => state.userName);
@@ -35,6 +38,55 @@ export default function UserResult() {
     setEdit(true);
   };
 
+  const handleSaveClick = () => {
+    //delete unchecked from table
+    axios
+      .delete("http://localhost:4000/user/result", {
+        data: {
+          name: userName,
+          items: itemUnchecked,
+        },
+      })
+      .then((res) => {
+        setEdit(false);
+        setOpen(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    //insert new choice
+    // axios
+    //   .("http://localhost:4000/user", formData, {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       // "multipart/form-data"
+    //     },
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     setUserName(formData.name);
+    //     navigate({
+    //       pathname: "/result/",
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    console.log(itemUnchecked);
+    // insert new choice to table
+    console.log(formData);
+  };
+
+  const handleCheckChange = (event) => {
+    const name = event.target.name;
+    setItemUnchecked((item) =>
+      itemUnchecked.includes(name)
+        ? itemUnchecked.filter((f) => f !== name)
+        : [...itemUnchecked, name]
+    );
+  };
+
   const handleClose = (
     event?: React.SyntheticEvent | Event,
     reason?: string
@@ -47,11 +99,6 @@ export default function UserResult() {
     navigate({
       pathname: "/",
     });
-  };
-
-  const handleSendSelection = (event) => {
-    // const { name, checked} = event.target;
-    // setFormData((prevFormData) => ({ ...prevFormData, [name]: checked }));
   };
 
   useEffect(() => {
@@ -90,6 +137,7 @@ export default function UserResult() {
                         name={item.sectortype_id}
                         defaultChecked={!edit}
                         disabled={!edit}
+                        onChange={handleCheckChange}
                       />
                     }
                     label={item.type_name}
@@ -108,7 +156,7 @@ export default function UserResult() {
               <Button
                 type="primary"
                 variant="contained"
-                onClick={handleEditClick}
+                onClick={edit === true ? handleSaveClick : handleEditClick}
               >
                 {edit === true ? "Save" : "Edit"}
               </Button>
