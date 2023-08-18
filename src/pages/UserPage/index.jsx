@@ -1,4 +1,5 @@
-import { Checkbox } from "@mui/material";
+import { Checkbox, Button, IconButton } from "@mui/material";
+import SaveIcon from "@mui/icons-material/Save";
 import React, { useState } from "react";
 import UserSector from "../../components/UserSector";
 import axios from "axios";
@@ -7,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import "./style.css";
+import { purple } from "@mui/material/colors";
 
 export default function UserPage() {
   let navigate = useNavigate();
@@ -59,8 +61,6 @@ export default function UserPage() {
       .catch((err) => {
         console.log(err);
       });
-
-    // alert(`Name: ${formData.name}, terms: ${formData.terms}, Selected: ${formData.selected}`);
   };
 
   return (
@@ -118,11 +118,26 @@ export default function UserPage() {
                       />
                     }
                     label="Agree to terms"
+                    sx={{
+                      color: purple[800],
+                      "&.Mui-checked": {
+                        color: purple[800],
+                      },
+                    }}
                   />
                 </FormGroup>
-                <button className="btn-submit" type="submit">
+                <Button
+                  sx={{ borderRadius: 3 }}
+                  variant="contained"
+                  startIcon={<SaveIcon />}
+                  type="submit"
+                >
+                  Save
+                </Button>
+
+                {/* <button className="btn-submit" type="submit">
                   Submit
-                </button>
+                </button> */}
               </div>
               {/* <Button type="primary">Tambah Nilai</Button> */}
             </form>
