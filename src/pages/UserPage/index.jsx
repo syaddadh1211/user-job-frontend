@@ -39,7 +39,7 @@ export default function UserPage() {
     } else if (formData.terms === "") {
       alert("Terms must be checked");
       return;
-    } else if (formData.selected === []) {
+    } else if (formData.selected.length === 0) {
       alert("Sector must be selected");
       return;
     }
