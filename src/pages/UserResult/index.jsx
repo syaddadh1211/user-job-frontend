@@ -120,8 +120,8 @@ export default function UserResult() {
         <div className="resultAll">
           <div>
             <img
-              src=".images/group6.png"
-              alt="images/group6.png"
+              src="../images/group6.svg"
+              alt="../images/group6.svg"
               width="376px"
             />
           </div>
@@ -197,8 +197,8 @@ export default function UserResult() {
           </div>
           <div>
             <img
-              src="images/group8.png"
-              alt="images/group8.png"
+              src="../images/group8.svg"
+              alt="../images/group8.svg"
               width="376px"
               height="600px"
             />
