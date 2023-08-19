@@ -171,6 +171,7 @@ export default function UserResult() {
                   type="primary"
                   variant="contained"
                   onClick={edit === true ? handleSaveClick : handleEditClick}
+                  disabled={userName === "" ? true : false}
                 >
                   {edit === true ? "Save" : "Edit"}
                 </Button>
@@ -179,6 +180,7 @@ export default function UserResult() {
                   type="primary"
                   variant="contained"
                   onClick={handleClick}
+                  disabled={userName === "" ? true : false}
                 >
                   Done
                 </Button>
