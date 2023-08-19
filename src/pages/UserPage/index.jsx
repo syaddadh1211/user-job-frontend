@@ -144,8 +144,8 @@ export default function UserPage() {
           </div>
           <div>
             <img
-              src="images/group8.png"
-              alt="images/group8.png"
+              src="images/group8.svg"
+              alt="images/group8.svg"
               width="401px"
               height="600px"
             />
