@@ -7,37 +7,17 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserPage from "./pages/UserPage";
 import UserResult from "./pages/UserResult";
 
+import Navbar from "./components/Navbar";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      {/* <UserPage /> */}
+      <Navbar />
+
       <Routes>
         <Route path="/" element={<UserPage />} />
-        {/* <Route path="login" element={<LoginPage />} /> */}
         <Route path="/result" element={<UserResult />} />
-        {/* <Route path="register" element={<RegisterPage />} />
-        <Route path="category/:jenis" element={<CategoriesResult />} />
-        <Route
-          path="selected/:bookSlug"
-          element={
-            <ProtectedComponent>
-              <DetailBook />
-            </ProtectedComponent>
-          }
-        />
-        <Route path="search/:keyword" element={<SearchResult />} />
-
-        <Route
-          path="wishlist"
-          element={
-            <ProtectedComponent>
-              <MyWishlist />{" "}
-            </ProtectedComponent>
-          }
-        />
-
-        <Route path="*" element={<h1>Halaman tidak ditemukan</h1>} /> */}
       </Routes>
     </Router>
   </React.StrictMode>
