@@ -118,16 +118,19 @@ export default function UserResult() {
     <div>
       <div className="result-wrapper">
         <div className="resultAll">
-          <div>
+          <div className="photo">
             <img
+              className="img-sec"
               src="../images/group6.svg"
               alt="../images/group6.svg"
               width="376px"
             />
           </div>
-          <div>
-            <label htmlFor="">User name: {userName}</label>
-            <div>
+          <div className="sector-text">
+            <div className="text1">
+              <label htmlFor="">User name: {userName}</label>
+            </div>
+            <div className="text2">
               <label htmlFor="">Sector selected: </label>
             </div>
             <div>
@@ -195,12 +198,11 @@ export default function UserResult() {
               </div>
             </div>
           </div>
-          <div>
+          <div className="photo">
             <img
               src="../images/group8.svg"
               alt="../images/group8.svg"
-              width="376px"
-              height="600px"
+              className="img-sec"
             />
           </div>
         </div>

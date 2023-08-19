@@ -67,23 +67,23 @@ export default function UserPage() {
     <div>
       <div className="sector-wrapper">
         <div className="sector-3">
-          <div>
+          <div className="photo">
             <img
+              className="img-sec"
               src="images/group9.svg"
               alt="images/group9.svg"
-              width="276vw"
             />
           </div>
           <div className="sector-text">
             <form onSubmit={handleSubmit}>
-              <label className="text1">
-                Please enter your name and pick the Sectors you are currently
-                involved in.
-              </label>
-              <div>
-                <label className="text2" htmlFor="name">
-                  Name:
+              <div className="text1">
+                <label>
+                  Please enter your name and pick the Sectors you are currently
+                  involved in.
                 </label>
+              </div>
+              <div className="text2">
+                <label>Name:</label>
                 <input
                   className="input1"
                   type="text"
@@ -93,20 +93,20 @@ export default function UserPage() {
                   onChange={handleChange}
                 />
               </div>
-
-              <label className="text3" htmlFor="sector">
-                Sector:
-              </label>
+              <div className="text3">
+                <label>Sector:</label>
+              </div>
 
               <UserSector formData={formData} setFormData={setFormData} />
-
-              <label className="text4">
-                Hint:{" "}
-                <span className="hint">
-                  Click Expand All to show the sector, use Ctrl-Click to choose
-                  more than one sector
-                </span>
-              </label>
+              <div className="text4">
+                <label>
+                  Hint:{" "}
+                  <span className="hint">
+                    Click Expand All to show the sector, use Ctrl-Click to
+                    choose more than one sector
+                  </span>
+                </label>
+              </div>
 
               <div>
                 <FormGroup>
@@ -134,20 +134,14 @@ export default function UserPage() {
                 >
                   Save
                 </Button>
-
-                {/* <button className="btn-submit" type="submit">
-                  Submit
-                </button> */}
               </div>
-              {/* <Button type="primary">Tambah Nilai</Button> */}
             </form>
           </div>
-          <div>
+          <div className="photo">
             <img
+              className="img-sec"
               src="images/group8.svg"
               alt="images/group8.svg"
-              width="400vw"
-              height="600vh"
             />
           </div>
         </div>

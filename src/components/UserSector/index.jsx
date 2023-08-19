@@ -90,7 +90,7 @@ export default function UserSector({ formData, setFormData }) {
           defaultCollapseIcon={<ExpandMoreIcon />}
           defaultExpandIcon={<ChevronRightIcon />}
           multiSelect
-          sx={{ height: 216, flexGrow: 1, maxWidth: 400, overflowY: "auto" }}
+          sx={{ height: 216, flexGrow: 1, overflowY: "auto" }}
         >
           {userSector.map((sector, index) => {
             sectorKey.push(

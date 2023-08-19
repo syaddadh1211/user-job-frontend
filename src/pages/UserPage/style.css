@@ -1,5 +1,44 @@
-.sector-3 {
+/* .sector-wrapper {
+  width: 100%;
+} */
+.sector-wrapper .sector-3 {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+}
+
+.sector-wrapper .sector-3 .photo {
+  width: 30%;
+  display: flex;
+}
+
+.sector-3 .photo .img-sec {
+  width: 100%;
+  max-width: 376px;
+}
+
+.sector-3 .sector-text {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sector-text .text1,
+.text2,
+.text3 {
+  font-weight: 800;
+  color: #234e09;
+  font-size: 1.5rem;
+  margin: 15px 0px;
+}
+
+.input1 {
+  margin: 15px 35px;
+  border-color: #234e09;
+  border-radius: 5px;
+}
+.text4,
+.hint {
+  font-weight: 600;
+  color: #234e09;
 }

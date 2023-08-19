@@ -1,35 +1,15 @@
-.sector-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.text1, .text2, .text3 {
-    font-weight: 800;
-    color: #234E09;
-    font-size: 20px;
-    margin: 15px 0px;
-}
-
-.input1 {
-    margin: 15px 35px;
-    border-color: #234E09;
-    border-radius: 5px;
-}
-
 .tree-select {
-    border-color: #234E09;
+  border-color: #234e09;
+  border-radius: 5px;
+  border-width: 3px;
+  border-style: solid;
+}
+
+@media (max-width: 400px) {
+  .tree-select {
+    border-color: #234e09;
     border-radius: 5px;
-    border-width: 3px; 
-    border-style: solid;      
-}
-
-.btn-submit {
-    margin: 15px 0px;
-    color: #234E09
-}
-
-.text4, .hint {
-    font-weight: 600;
-    color: #234E09;
+    border-width: 3px;
+    border-style: solid;
+  }
 }
