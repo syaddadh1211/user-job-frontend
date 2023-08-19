@@ -69,9 +69,9 @@ export default function UserPage() {
         <div className="sector-3">
           <div>
             <img
-              src="images/group9.png"
-              alt="images/group9.png"
-              width="376px"
+              src="images/group9.svg"
+              alt="images/group9.svg"
+              width="276px"
             />
           </div>
           <div className="sector-text">
