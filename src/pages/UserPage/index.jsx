@@ -71,7 +71,7 @@ export default function UserPage() {
             <img
               src="images/group9.svg"
               alt="images/group9.svg"
-              width="276px"
+              width="276vw"
             />
           </div>
           <div className="sector-text">
@@ -146,8 +146,8 @@ export default function UserPage() {
             <img
               src="images/group8.svg"
               alt="images/group8.svg"
-              width="401px"
-              height="600px"
+              width="400vw"
+              height="600vh"
             />
           </div>
         </div>
