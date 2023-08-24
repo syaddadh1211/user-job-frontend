@@ -41,7 +41,7 @@ export default function UserResult() {
   const handleSaveClick = () => {
     //delete unchecked from table
     axios
-      .delete("http://localhost:4000/user/result", {
+      .delete("https://syaddad.domcloud.io/user/result", {
         data: {
           name: userName,
           items: itemUnchecked,
@@ -57,7 +57,7 @@ export default function UserResult() {
     //insert new choice
     setFormData((prevFormData) => ({ ...prevFormData, ["name"]: userName }));
     axios
-      .post("http://localhost:4000/user", formData, {
+      .post("https://syaddad.domcloud.io/user", formData, {
         headers: {
           "Content-Type": "application/json",
           // "multipart/form-data"

@@ -30,12 +30,12 @@ const gramediaLokal = axios.create({
 });
 
 const userSectorAll = axios.create({
-  baseURL: "http://localhost:4000/user",
+  baseURL: "https://syaddad.domcloud.io/user",
   },
 );
 
 const userSectorResult = axios.create({
-  baseURL: "http://localhost:4000/user",
+  baseURL: "https://syaddad.domcloud.io/user",
   },
 );
 

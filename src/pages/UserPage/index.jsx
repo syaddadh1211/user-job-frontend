@@ -45,7 +45,7 @@ export default function UserPage() {
     }
 
     axios
-      .post("http://localhost:4000/user", formData, {
+      .post("https://syaddad.domcloud.io/user", formData, {
         headers: {
           "Content-Type": "application/json",
           // "multipart/form-data"

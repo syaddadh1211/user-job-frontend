@@ -18,51 +18,12 @@ export default function UserSector({ formData, setFormData }) {
     setExpanded((oldExpanded) => (oldExpanded.length === 0 ? sectorKey : []));
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   if (formData.name === "") {
-  //     alert(`You must fill name`);
-  //     return;
-  //   } else if (formData.terms === "") {
-  //     alert("Terms must be checked");
-  //     return;
-  //   } else if (formData.selected === []) {
-  //     alert("Sector must be selected");
-  //     return;
-  //   }
-
-  //   axios
-  //     .post("http://localhost:4000/user", formData, {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         // "multipart/form-data"
-  //       },
-  //     })
-  //     .then((res) => {
-  //       console.log(res);
-  //       navigate("/result");
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-
-  //   // alert(`Name: ${formData.name}, terms: ${formData.terms}, Selected: ${formData.selected}`);
-  // };
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-  // };
-
+  
   const handleSelectedItems = (event, nodeId) => {
     setFormData((prevFormData) => ({ ...prevFormData, ["selected"]: nodeId }));
   };
 
-  // const handleSendSelection = (event) => {
-  //   const { name, checked } = event.target;
-  //   setFormData((prevFormData) => ({ ...prevFormData, [name]: checked }));
-  // };
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
